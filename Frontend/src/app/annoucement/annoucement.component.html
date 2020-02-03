@@ -1,0 +1,76 @@
+<navbar></navbar>
+<div class="content-wrapper">
+    <div class="container-fluid">
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a routerLink="/dashboard">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">Annoucements</li>
+      </ol>
+      <div class="box_general">
+        <div class="header_box">
+          <h2 class="d-inline-block">Annoucements</h2>
+        </div>
+        <form #annoucementForm="ngForm" (ngSubmit)="annoucementForm.valid && postAnnoucement()">
+            <div class="form-group">
+                <input 
+                  type="text" 
+                  class="form-control"
+                  #title="ngModel" 
+                  [(ngModel)]="annoucement.title" 
+                  name="title"
+                  required
+                  placeholder="Annoucement title">
+                  <div *ngIf="annoucementForm.submitted && !title.valid">
+                    <label class="alert alert-danger">This field is required.</label>
+                  </div>
+              </div>
+              <div class="form-group">
+                <textarea 
+                  rows="5" 
+                  class="form-control" 
+                  style="height:100px;" 
+                  placeholder="Annoucement Description"
+                  #description="ngModel" 
+                  [(ngModel)]="annoucement.description" 
+                  name="description"
+                  required
+                  ></textarea>
+                  <div *ngIf="annoucementForm.submitted && !description.valid">
+                      <label class="alert alert-danger">This field is required.</label>
+                    </div>
+              </div>
+              <button class="btn btn-primary">Submit</button>
+        </form>
+        <div class="alert alert-success" *ngIf="showSucessMessage">
+            Saved successfully
+          </div>
+          
+          <!-- Error message -->
+          <div class="alert alert-danger" *ngIf="serverErrorMessages">
+            {{serverErrorMessages}}
+          </div>
+
+          <div class="alert alert-success" *ngIf="showDeleteMessage">
+              Deleted successfully
+            </div>
+          <br>
+        <div class="list_general">
+          <ul>
+            <li *ngFor="let item of allannoucement">
+              <span>{{ item.date | date: 'medium' }}</span>
+              <h4>{{ item.title }}</h4>
+              <p>{{ item.description }}</p>
+              <p>
+                <a (click)="onDelete(item._id)" class="btn_1 gray delete wishlist_close">
+                <i class="fa fa-fw fa-times-circle-o"></i> 
+                Delete
+                </a>
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+</div>

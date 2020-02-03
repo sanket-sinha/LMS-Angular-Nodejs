@@ -1,0 +1,115 @@
+<navbar></navbar>
+<div class="content-wrapper">
+    <div class="container-fluid">
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a routerLink="/dashboard">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item" ><a routerLink="/mycourse">Courses</a></li>
+		<li class="breadcrumb-item active">{{ course.coursename }}</li>
+      </ol>
+		<div class="box_general">
+			<div class="header_box">
+				<h2 class="d-inline-block">{{ course.coursename }}</h2>
+			</div>
+			<div class="container">
+					<div class="row" *ngIf="!isView && courseAccess">
+						<div class="col-lg-12">
+							<video controls controlsList="nodownload">
+								<source [src]=videolink type="video/mp4">
+							</video>
+						</div>
+					</div>
+				</div>
+				<div class="container">
+					<div class="row" *ngIf="isView || !courseAccess">
+						<div class="col-md-12">
+							<div class="row">
+								<div class="col-md-3">
+									<img src="./assets/uploads/{{course.coursepicture}}" width="100%" alt="{{course.coursename}}">
+								</div>
+								<div class="col-md-9">
+									<h4>{{course.coursename}} </h4>
+									<ul class="course_list">
+										<li><strong>Duration</strong> {{course.courseduration}}</li>
+										<li><strong>Category</strong> {{course.coursecategory}}</li>
+										<li><strong>Teacher</strong> {{course.teachername}}</li>
+										<li><strong>Price</strong> {{course.courseprice | currency:'INR'}}</li>
+										
+									</ul>
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="col-md-12">
+										<h6>Course description</h6> 
+										<p>{{course.coursedescription}}</p>
+										<p><a [routerLink]="['/registercourse', course._id]" class="btn_1 gray approve"><i class="fa fa-fw fa-check-circle-o"></i>Register Course</a></p>
+										
+								</div>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			<div class="bg_color_1">
+			<div class="container margin_60_35">
+				<div class="row">
+					<div class="col-lg-12">
+						<section id="lessons">
+							<div class="intro_title">
+								<h2>Lessons</h2>
+								<ul>
+									<li>{{ course.courseduration }}</li>
+								</ul>
+							</div>
+							<div class="card">
+									<div class="card-body">
+										<div class="list_lessons">
+											<ul>
+												<li *ngFor="let lessons of courselessons">
+													<a 
+														(click)="setvideo(lessons)" 
+														class="{{lessons.type}}">
+														{{ lessons.title }}
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+							</div>
+								
+							
+							<!-- /accordion -->
+						</section>
+						<!-- /section -->
+					</div>
+					<!-- /col -->
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+			<!--<div class="list_general reviews">
+				<form>
+
+				</form>
+				<div class="intro_title">
+					<h2>Reviews and Ratings</h2>
+				</div>
+				<ul>
+					<li>
+						<span>June 15 2017</span>
+						<span class="rating"><i class="fa fa-fw fa-star yellow"></i><i class="fa fa-fw fa-star yellow"></i><i class="fa fa-fw fa-star yellow"></i><i class="fa fa-fw fa-star yellow"></i><i class="fa fa-fw fa-star"></i></span>
+						<h4>Course title</h4>
+						<p>Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei, amet tritani sea id. Ut veri diceret fierent mei, qui facilisi suavitate euripidis ad. In vim mucius menandri convenire, an brute zril vis. Ancillae delectus necessitatibus no eam, at porro solet veniam mel, ad everti nostrud vim. Eam no menandri pertinacia deterruisset.</p>
+						
+					</li>
+				</ul>
+			</div>-->
+		</div>
+		
+	  </div>
+	  <!-- /container-fluid-->
+   	</div>

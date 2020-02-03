@@ -1,0 +1,76 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-default fixed-top" id="mainNav">
+    <a class="navbar-brand" routerLink="/dashboard"><img src="./assets/img/logo.png" data-retina="true" alt="" width="145" height="36"></a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard" routerLinkActive="activemenu">
+          <a class="nav-link" routerLink="/dashboard">
+            <i class="fa fa-fw fa-dashboard"></i>
+            <span class="nav-link-text">Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Course" routerLinkActive="activemenu">
+          <a class="nav-link" routerLink="/course">
+            <i class="fa fa-fw fa-archive"></i>
+            <span class="nav-link-text">Courses <!-- <span class="badge badge-pill badge-primary">6 New</span> --></span>
+          </a>
+        </li>
+        <li *ngIf="!isadmin" class="nav-item" data-toggle="tooltip" data-placement="right" title="My Course" >
+          <a class="nav-link" routerLink="/mycourse" routerLinkActive="activemenu">
+            <i class="fa fa-fw fa-archive"></i>
+            <span class="nav-link-text">My Courses <!-- <span class="badge badge-pill badge-primary">6 New</span> --></span>
+          </a>
+        </li>
+        <li *ngIf="isadmin" class="nav-item" data-toggle="tooltip" data-placement="right" title="Add Course" routerLinkActive="activemenu">
+          <a class="nav-link" routerLink="/addcourse">
+            <i class="fa fa-fw fa-archive"></i>
+            <span class="nav-link-text">Add Courses <!-- <span class="badge badge-pill badge-primary">6 New</span> --></span>
+          </a>
+        </li>
+        <li *ngIf="isadmin" class="nav-item" data-toggle="tooltip" data-placement="right" title="Annoucements" routerLinkActive="activemenu">
+          <a class="nav-link" routerLink="/annoucements">
+            <i class="fa fa-fw fa-archive"></i>
+            <span class="nav-link-text">Annoucements <!-- <span class="badge badge-pill badge-primary">6 New</span> --></span>
+          </a>
+        </li>
+        <li *ngIf="isadmin" class="nav-item" data-toggle="tooltip" data-placement="right" title="Course data" routerLinkActive="activemenu">
+          <a class="nav-link" routerLink="/coursedata">
+            <i class="fa fa-fw fa-archive"></i>
+            <span class="nav-link-text">Course Registration Details <!-- <span class="badge badge-pill badge-primary">6 New</span> --></span>
+          </a>
+        </li>
+        <li *ngIf="isadmin" class="nav-item" data-toggle="tooltip" data-placement="right" title="Students Details" routerLinkActive="activemenu">
+            <a class="nav-link" routerLink="/students">
+              <i class="fa fa-fw fa-archive"></i>
+              <span class="nav-link-text">Students Details <!-- <span class="badge badge-pill badge-primary">6 New</span> --></span>
+            </a>
+          </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="My Profile" routerLinkActive="activemenu">
+          <a class="nav-link" routerLink="/myprofile">
+            <i class="fa fa-fw fa-wrench"></i>
+            <span class="nav-link-text">My Profile</span>
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav sidenav-toggler">
+        <li class="nav-item">
+          <a class="nav-link text-center" id="sidenavToggler">
+            <i class="fa fa-fw fa-angle-left"></i>
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/myprofile" data-toggle="modal">
+            <i class="fa fa-user"></i> Welcome {{ fullname }}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="modal" (click)="onLogout()">
+            <i class="fa fa-fw fa-sign-out"></i>Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- /Navigation-->

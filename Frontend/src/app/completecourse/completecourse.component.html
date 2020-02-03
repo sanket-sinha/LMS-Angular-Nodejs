@@ -1,0 +1,66 @@
+<navbar></navbar>
+<div class="content-wrapper">
+    <div class="container-fluid">
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a routerLink="/dashboard">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">My Courses</li>
+      </ol>
+		<div class="box_general">
+			<div class="header_box">
+				<h2 class="d-inline-block">Completed Courses</h2>
+			</div>
+			<div *ngIf="allCompletedCourse.length==0" class="list_general">
+				<div class="alert alert-info">
+					You Have Not Completed Any Course. Please Complete a Course.
+				</div>
+			</div>
+			<div *ngIf="allCompletedCourse.length>0" class="list_general">
+				<ul>
+					<li *ngFor="let course of allCourseShow">
+						<div class="col-md-12">
+							<div class="row">
+								<div class="col-md-3">
+									<img src="./assets/uploads/{{course.coursepicture}}" width="100%" alt="{{course.coursename}}">
+								</div>
+								<div class="col-md-9">
+									<h4>{{course.coursename}} <i class="approved">Completed</i></h4>
+									<ul class="course_list">
+										<li><strong>Category</strong> {{course.coursecategory}}</li>
+                                        <li><strong>Teacher</strong> {{course.teachername}}</li>
+                                        <li><strong>Duration</strong> {{course.courseduration}}</li>
+										<li><strong>Completed On</strong> {{getExpirydate(course._id)}}</li>
+										
+									</ul>
+								</div>
+							</div>
+						</div>
+						<!--<ul class="buttons">
+							<li><a (click)="getCertificate(course.coursename,getExpirydate(course._id))" class="btn_1 gray approve"><i class="fa fa-fw fa-eye"></i>Get Certificate</a></li>
+						</ul>-->
+					</li>
+				</ul>
+            </div>
+            
+            
+		</div>
+		<!-- /box_general-->
+		<nav aria-label="...">
+			<ul class="pagination pagination-sm add_bottom_30">
+				<li class="page-item disabled">
+					<a class="page-link" href="#" tabindex="-1">Previous</a>
+				</li>
+				<li class="page-item"><a class="page-link" href="#">1</a></li>
+				<li class="page-item"><a class="page-link" href="#">2</a></li>
+				<li class="page-item"><a class="page-link" href="#">3</a></li>
+				<li class="page-item">
+					<a class="page-link" href="#">Next</a>
+				</li>
+			</ul>
+		</nav>
+		<!-- /pagination-->
+	  </div>
+	  <!-- /container-fluid-->
+	   </div>

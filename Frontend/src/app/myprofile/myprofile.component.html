@@ -1,0 +1,156 @@
+<navbar></navbar>
+<div class="content-wrapper">
+    <div class="container-fluid">
+		<form #updateForm="ngForm" (ngSubmit)="updateForm.valid && onUpdate(updateForm)">
+      <!-- Breadcrumbs-->
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item">
+			<a href="#">Dashboard</a>
+			</li>
+			<li class="breadcrumb-item active">My Profile</li>
+		</ol>
+		<div class="box_general padding_bottom">
+			<div class="header_box version_2">
+				<h2><i class="fa fa-user"></i>Profile details</h2>
+			</div>
+			<div class="row">
+				<div class="col-md-12 add_top_30">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>First Name</label>
+								<!--full name-->
+								<input type="text" 
+									#fullName="ngModel" 
+									[(ngModel)]="userService.loggedUser.fullName" 
+									name="fullName" 
+									placeholder="Your Full Name"
+									required  
+									class="form-control">
+								<div *ngIf="updateForm.submitted && !fullName.valid">
+									<label class="alert alert-danger">This field is required.</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /row-->
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label>Telephone</label>
+								<!--telephone-->
+								<input 	
+									type="text" 
+									#telephone="ngModel" 
+									[(ngModel)]="userService.loggedUser.telephone" 
+									name="telephone" 
+									placeholder="Your telephone number"
+									required 
+									minlength="10" 
+									maxlength="10" 
+									class="form-control">
+								<div *ngIf="updateForm.submitted && !telephone.valid">
+									<label *ngIf="telephone.errors.required" class="alert alert-danger">This field is required.</label>
+									<label *ngIf="telephone.errors.minlength" class="alert alert-danger">Min length mustbe 10.</label>
+									<label *ngIf="telephone.errors.maxlength" class="alert alert-danger">Max length mustbe 10.</label>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label>Email</label>
+								<!--email-->
+								<input 
+									type="text" 
+									#email="ngModel" 
+									[(ngModel)]="userService.loggedUser.email" 
+									name="email" 
+									class="form-control" 
+									placeholder="Your Email"
+									required 
+									[pattern]="emailRegex">
+								<div *ngIf="updateForm.submitted && email.errors">
+									<label *ngIf="email.errors.required" class="alert alert-danger">This field is required.</label>
+									<label *ngIf="email.errors.pattern" class="alert alert-danger">Invalid email address.</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /row-->
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Address</label>
+								<input 
+									type="text" 
+									#address="ngModel" 
+									[(ngModel)]="userService.loggedUser.address" 
+									name="address" 
+									class="form-control" 
+									placeholder="Your Addesss"
+									required>
+								<div *ngIf="updateForm.submitted && !address.valid">
+									<label *ngIf="address.errors.required" class="alert alert-danger">This field is required.</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /row-->
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label>City</label>
+								<input 
+									type="text" 
+									#city="ngModel" 
+									[(ngModel)]="userService.loggedUser.city" 
+									name="city" 
+									class="form-control"  
+									placeholder="Your City"
+									required>
+								<div *ngIf="updateForm.submitted && !city.valid">
+									<label *ngIf="city.errors.required" class="alert alert-danger">This field is required.</label>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label>Pincode</label>
+								<input 
+									type="text" 
+									#pincode="ngModel" 
+									[(ngModel)]="userService.loggedUser.pincode" 
+									name="pincode" 
+									class="form-control"  
+									placeholder="Your Pincode"
+									required>
+								<div *ngIf="updateForm.submitted && !pincode.valid">
+									<label *ngIf="pincode.errors.required" class="alert alert-danger">This field is required.</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /row-->
+				</div>
+			</div>
+		</div>
+		<!-- /box_general-->
+		<!-- /row-->
+		
+		<div >
+			<button class="btn btn-primary">Submit</button>
+		</div>
+		
+		</form>
+		<!-- Success message -->
+		<div class="alert alert-success" *ngIf="showSucessMessage">
+			Saved successfully
+		</div>
+	  
+		<!-- Error message -->
+		<div class="alert alert-danger" *ngIf="serverErrorMessages">
+			{{serverErrorMessages}}
+		</div>
+	</div>
+	  <!-- /.container-fluid-->
+</div>

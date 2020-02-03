@@ -1,0 +1,13 @@
+<div id="content" class="certificate">
+        <img src="./assets/img/certificate.jpg" width="100%">
+        <div class="name">
+                <a>{{ certificate.studentname }}</a>
+        </div>
+        <div class="course">
+                <a>'{{ certificate.coursename }}'</a>
+        </div>
+        <div class="date">
+                <a>{{ certificate.date }}</a>
+        </div>
+</div>
+<a (click)="onClick()" class="btn_1 gray approve"><i class="fa fa-fw fa-eye"></i>Get Certificate</a>

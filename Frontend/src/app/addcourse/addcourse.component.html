@@ -1,0 +1,275 @@
+<navbar></navbar>
+<!-- /Navigation-->
+<div class="content-wrapper">
+  <div class="container-fluid">
+    <form #lessonForm="ngForm" enctype="multipart/form-data" (ngSubmit)="lessonForm.valid && submitForm(lessonForm)">
+    <!-- Breadcrumbs-->
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="#">Dashboard</a>
+      </li>
+      <li class="breadcrumb-item active">Add Course</li>
+    </ol>
+  <div class="box_general padding_bottom">
+    <div class="header_box version_2">
+      <h2><i class="fa fa-file"></i>Basic info</h2>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Course title</label>
+          <input 
+            type="text" 
+            class="form-control"
+            #coursename="ngModel" 
+            [(ngModel)]="courseService.newCourse.coursename" 
+            name="coursename"
+            required
+            placeholder="Course title">
+            <div *ngIf="lessonForm.submitted && !coursename.valid">
+              <label class="alert alert-danger">This field is required.</label>
+            </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Course Code</label>
+          <input 
+            type="text" 
+            class="form-control"
+            #coursecode="ngModel" 
+            [(ngModel)]="courseService.newCourse.coursecode" 
+            name="coursecode"
+            required
+            placeholder="Course Code">
+            <div *ngIf="lessonForm.submitted && !coursecode.valid">
+              <label class="alert alert-danger">This field is required.</label>
+            </div>
+        </div>
+      </div>
+    </div>
+    <!-- /row-->
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Course Price</label>
+          <input 
+            type="text" 
+            class="form-control"
+            #courseprice="ngModel" 
+            [(ngModel)]="courseService.newCourse.courseprice" 
+            name="courseprice"
+            required
+            placeholder="Course Price">
+            <div *ngIf="lessonForm.submitted && !courseprice.valid">
+              <label class="alert alert-danger">This field is required.</label>
+            </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Course Discounted Price</label>
+          <input 
+            type="text" 
+            class="form-control"
+            #discountedprice="ngModel" 
+            [(ngModel)]="courseService.newCourse.discountedprice" 
+            name="discountedprice"
+            placeholder="Course Discounted Price">
+        </div>
+      </div>
+    </div>
+    <!-- /row-->
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Course Duration</label>
+          <input 
+            type="text" 
+            class="form-control"
+            #courseduration="ngModel" 
+            [(ngModel)]="courseService.newCourse.courseduration" 
+            name="courseduration"
+            required
+            placeholder="Course Duration">
+            <div *ngIf="lessonForm.submitted && !courseduration.valid">
+              <label class="alert alert-danger">This field is required.</label>
+            </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Teacher name</label>
+          <input 
+            type="text" 
+            class="form-control"
+            #teachername="ngModel" 
+            [(ngModel)]="courseService.newCourse.teachername" 
+            name="teachername"
+            required
+            placeholder="Teacher Name">
+            <div *ngIf="lessonForm.submitted && !teachername.valid">
+              <label class="alert alert-danger">This field is required.</label>
+            </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- /row-->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label>Course picture</label>
+          <input
+              id="file"
+              type="file"
+              class="form-control"
+              name="coursepicture"
+              (change)="handelFileInput($event)"
+              #coursepicture="ngModel"
+              [(ngModel)]="courseService.newCourse.coursepicture"
+              required>
+              <div *ngIf="lessonForm.submitted && !coursepicture.valid">
+                <label class="alert alert-danger">This field is required.</label>
+              </div>
+         </div>
+      </div>
+    </div>
+    <!-- /row-->
+  </div>
+  <!-- /box_general-->
+  
+  <div class="box_general padding_bottom">
+    <div class="header_box version_2">
+      <h2><i class="fa fa-file-text"></i>Description</h2>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label>Course description</label>
+          <textarea 
+            rows="5" 
+            class="form-control" 
+            style="height:100px;" 
+            placeholder="Description"
+            #coursedescription="ngModel" 
+            [(ngModel)]="courseService.newCourse.coursedescription" 
+            name="coursedescription"
+            required
+            ></textarea>
+            <div *ngIf="lessonForm.submitted && !coursedescription.valid">
+                <label class="alert alert-danger">This field is required.</label>
+              </div>
+        </div>
+      </div>
+    </div>
+    <!-- /row-->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label>Category <a href="#0" data-toggle="tooltip" data-placement="top" title="Separated by commas"><i class="fa fa-fw fa-question-circle"></i></a></label>
+          <input 
+            type="text" 
+            class="form-control"
+            #coursecategory="ngModel" 
+            [(ngModel)]="courseService.newCourse.coursecategory" 
+            name="coursecategory"
+            required
+            placeholder="Course Category">
+            <div *ngIf="lessonForm.submitted && !coursecategory.valid">
+              <label class="alert alert-danger">This field is required.</label>
+            </div>
+        </div>
+      </div>
+    </div>
+    <!-- /row-->
+  </div>
+  <!-- /box_general-->
+  
+    <div class="box_general padding_bottom">
+      <div class="header_box version_2">
+        <h2><i class="fa fa-video-camera"></i>Lessons</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h6>Item</h6>
+          <table id="pricing-list-container" style="width:100%;">
+            <tr class="pricing-list-item" *ngFor="let courselesson of CourseLessons; let i=index">
+              <td>
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <input 
+                        type="text" 
+                        class="form-control"
+                        #title="ngModel" 
+                        [(ngModel)]="courselesson.title" 
+                        name="title{{i}}"
+                        required
+                        placeholder="title">
+                        <div *ngIf="lessonForm.submitted && !title.valid">
+                          <label class="alert alert-danger">This field is required.</label>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <input 
+                        type="file" 
+                        class="form-control"
+                        #file="ngModel" 
+                        [(ngModel)]="courselesson.file" 
+                        (change)="handelFileInput($event)"
+                        name="file{{i}}"
+                        placeholder="file"
+                        >
+                        
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                      <div class="form-group">
+                        <select 
+                          class="form-control" 
+                          #type="ngModel" 
+                          [(ngModel)]="courselesson.type" 
+                          name="type{{i}}" 
+                          required>
+                            <option value="" selected>Select Type</option>
+                            <option value="Title">Title</option>
+                            <option value="Video">Video</option>
+                            <option value="Document">Document</option>
+                        </select>
+                        <div *ngIf="lessonForm.submitted && !type.valid">
+                          <label class="alert alert-danger">This field is required.</label>
+                        </div>
+                      </div>
+                    </div>
+                  <div class="col-md-2">
+                    <div class="form-group">
+                      <a class="delete" (click)="removeForm(i)"><i class="fa fa-fw fa-remove"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </table>
+          <a (click)="addForm()" class="btn_1 gray add-pricing-list-item"><i class="fa fa-fw fa-plus-circle"></i>Add Item</a>
+          </div>
+      </div>
+      <!-- /row-->
+    </div>
+  
+  <!-- /box_general-->
+  <button class="btn btn-primary">Submit</button>
+  </form>
+  <div class="alert alert-success" *ngIf="showSucessMessage">
+    Saved successfully
+  </div>
+  
+  <!-- Error message -->
+  <div class="alert alert-danger" *ngIf="serverErrorMessages">
+    {{serverErrorMessages}}
+  </div>
+  </div>
+  <!-- /.container-fluid-->
+   </div>

@@ -1,0 +1,136 @@
+<navbar></navbar>
+<div class="content-wrapper">
+    <div class="container-fluid">
+      <!-- Breadcrumbs-->
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item">
+			<a href="#">Dashboard</a>
+			</li>
+			<li class="breadcrumb-item">Register</li>
+		</ol>
+		<div class="box_general padding_bottom">
+      <!-- Success message -->
+      <div class="alert alert-success" *ngIf="showSucessMessage">
+          Saved successfully
+        </div>
+        
+        <!-- Error message -->
+        <div class="alert alert-danger" *ngIf="serverErrorMessages">
+          {{serverErrorMessages}}
+        </div>
+      <div class="bg_color_1">
+        <div class="container margin_60_35">
+          <div class="row">
+            <div class="col-lg-8">
+              <div class="box_cart">
+                
+                <div class="form_title">
+                  <h3><strong>1</strong>Payment Information</h3>
+                  <p>
+                    Pay using your Debit/Credit Card
+                  </p>
+                </div>
+                <div class="step">
+                  <span class="input">
+                    <input class="input_field" type="text">
+                    <label class="input_label">
+                      <span class="input__label-content">Name on card</span>
+                    </label>
+                  </span>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <span class="input">
+                        <input class="input_field" type="text">
+                        <label class="input_label">
+                          <span class="input__label-content">Card number</span>
+                        </label>
+                      </span>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                      <img src="./assets/img/payments.png" alt="Cards" class="cards">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 add_top_30">
+                      <label>Expiration date</label>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <span class="input">
+                            <input class="input_field" type="text">
+                            <label class="input_label">
+                              <span class="input__label-content">MM</span>
+                            </label>
+                          </span>
+                        </div>
+                        <div class="col-md-6">
+                          <span class="input">
+                            <input class="input_field" type="text">
+                            <label class="input_label">
+                              <span class="input__label-content">Year</span>
+                            </label>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 add_top_30">
+                      <div class="form-group">
+                        <label>Security code</label>
+                        <div class="row">
+                          <div class="col-md-4">
+                            <span class="input">
+                              <input class="input_field" type="text">
+                              <label class="input_label">
+                                <span class="input__label-content">CVV</span>
+                              </label>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--End row -->
+                </div>
+                
+                <!--End step -->
+              </div>
+            </div>
+            <aside 
+              class="col-lg-4" id="sidebar" 
+              style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
+						
+              <div class="theiaStickySidebar" 
+                style="padding-top: 0px; padding-bottom: 1px; position: static; transform: none; top: 0px; 
+                left: 879.5px;">
+                <div class="box_detail">
+                  <img src="./assets/uploads/{{ course.coursepicture }}" width="100%" alt="{{ course.coursename }}">
+                  <div id="total_cart">
+                    Total <span class="float-right">{{ price | currency: 'INR'}}</span>
+                  </div>
+                  <div class="add_bottom_30">
+                    <h3>{{ course.coursename }}</h3>
+                  </div>
+                  <a (click)="checkout()" class="btn_1 full-width">Checkout</a>
+                  <a routerLink="/course" class="btn_1 full-width outline"><i class="icon-right"></i> Back to Course</a>
+                </div>
+                <div class="resize-sensor" style="position: absolute; left: 0px; top: 0px; right: 0px; 
+                  bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden;">
+                <div class="resize-sensor-expand" style="position: absolute; left: 0; top: 0; right: 0; 
+                    bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;">
+                  <div style="position: absolute; left: 0px; top: 0px; transition: all 0s ease 0s; width: 390px;
+                    height: 1494px;">
+                   </div>
+                  </div>
+                  <div class="resize-sensor-shrink" style="position: absolute; left: 0; top: 0; right: 0; 
+                    bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;">
+                  <div style="position: absolute; left: 0; top: 0; transition: 0s; width: 200%; height: 200%">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

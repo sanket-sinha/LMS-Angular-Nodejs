@@ -1,0 +1,91 @@
+<navbar></navbar>
+<div class="content-wrapper">
+    <div class="container-fluid">
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a routerLink="/dashboard">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">Courses</li>
+      </ol>
+		<div class="box_general">
+			<div class="header_box">
+				<h2 class="d-inline-block">Courses</h2>
+				<!-- <div class="filter">
+					<select name="orderby" class="selectbox">
+						<option value="Any status">Any status</option>
+						<option value="Approved">Started</option>
+						<option value="Pending">Pending</option>
+						<option value="Cancelled">Cancelled</option>
+					</select>
+				</div> -->
+			</div>
+			<div class="list_general">
+				<ul>
+					<li *ngFor="let course of allCourse">
+						<div class="col-md-12">
+							<div class="row">
+								<div class="col-md-3">
+									<img src="./assets/uploads/{{course.coursepicture}}" width="100%" alt="{{course.coursename}}">
+								</div>
+								<div class="col-md-9">
+									<h4>{{course.coursename}} <i class="approved">Started</i></h4>
+									<ul class="course_list">
+										<li><strong>Duration</strong> {{course.courseduration}}</li>
+										<li><strong>Category</strong> {{course.coursecategory}}</li>
+										<li><strong>Teacher</strong> {{course.teachername}}</li>
+										<li *ngIf="!getcourseaccess(course._id)"><strong>Price</strong> {{course.courseprice | currency:'INR'}}</li>
+										<li *ngIf="getcourseaccess(course._id)"><strong>Expire On</strong> {{getExpirydate(course._id)}}</li>
+										
+									</ul>
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="col-md-12">
+										<h6>Course description</h6> 
+										<p>{{course.coursedescription}}</p>
+										<p *ngIf="isadmin"><a [routerLink]="['/editcourse', course._id]" class="btn_1 gray approve"><i class="fa fa-fw fa-check-circle-o"></i> Edit Course</a>
+										<a (click)="onDelete(course._id)" class="btn_1 gray delete"><i class="fa fa-fw fa-times-circle-o"></i> Delete course</a></p>
+								</div>
+							</div>
+						</div>
+						<ul class="buttons">
+							<li>
+								<a *ngIf="!getcourseaccess(course._id)" [routerLink]="['/course', course.coursecode]" class="btn_1 gray approve">
+									<i class="fa fa-fw fa-eye"></i>View Course
+								</a>
+							</li>
+							<li>
+								<a *ngIf="isadmin || getcourseaccess(course._id)" [routerLink]="['/mycourse', course.coursecode]" class="btn_1 gray approve">
+									<i class="fa fa-fw fa-eye"></i>Go To Course
+								</a>
+							</li>
+              				<li *ngIf="!isadmin && !getcourseaccess(course._id)" >
+								  <a [routerLink]="['/registercourse', course.coursecode]" class="btn_1 gray approve">
+									<i class="fa fa-fw fa-check-circle-o"></i>Register Course
+								</a>
+							</li>
+            			</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- /box_general-->
+		<nav aria-label="...">
+			<ul class="pagination pagination-sm add_bottom_30">
+				<li class="page-item disabled">
+					<a class="page-link" href="#" tabindex="-1">Previous</a>
+				</li>
+				<li class="page-item"><a class="page-link" href="#">1</a></li>
+				<li class="page-item"><a class="page-link" href="#">2</a></li>
+				<li class="page-item"><a class="page-link" href="#">3</a></li>
+				<li class="page-item">
+					<a class="page-link" href="#">Next</a>
+				</li>
+			</ul>
+		</nav>
+		<!-- /pagination-->
+	  </div>
+	  <!-- /container-fluid-->
+   	</div>

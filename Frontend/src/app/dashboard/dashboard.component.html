@@ -1,0 +1,143 @@
+<navbar></navbar>
+<div class="content-wrapper">
+<div class="container-fluid">
+  <!-- Breadcrumbs-->
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <a href="#">Dashboard</a>
+    </li>
+    <li class="breadcrumb-item active">My Dashboard</li>
+  </ol>
+  <!-- Icon Cards-->
+  <div class="row">
+    <div *ngIf="isadmin" class="col-xl-4 col-sm-6 mb-3">
+      <div class="card dashboard text-white bg-primary o-hidden h-100">
+        <div class="card-body">
+          <div class="card-body-icon">
+            <i class="fa fa-fw fa-users"></i>
+          </div>
+          <div class="mr-5"><h5>{{ allStudentsData.length }} Students Enrolled</h5></div>
+        </div>
+        <a class="card-footer text-white clearfix small z-1" routerLink="/students">
+          <span class="float-left">View Details</span>
+          <span class="float-right">
+            <i class="fa fa-angle-right"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+    <div *ngIf="!isadmin" class="col-xl-4 col-sm-6 mb-3">
+      <div class="card dashboard text-white bg-primary o-hidden h-100">
+        <div class="card-body">
+          <div class="card-body-icon">
+            <i class="fa fa-fw fa-archive"></i>
+          </div>
+          <div class="mr-5"><h5>{{ allRegisteredCourse.length }} Ongoing Course</h5></div>
+        </div>
+        <a class="card-footer text-white clearfix small z-1" routerLink="/mycourse">
+          <span class="float-left">View Details</span>
+          <span class="float-right">
+            <i class="fa fa-angle-right"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+    <div *ngIf="!isadmin" class="col-xl-4 col-sm-6 mb-3">
+      <div class="card dashboard text-white bg-warning o-hidden h-100">
+        <div class="card-body">
+          <div class="card-body-icon">
+            <i class="fa fa-fw fa-star"></i>
+          </div>
+            <div class="mr-5"><h5>{{ allCompletedCourse.length }} Completed Course</h5></div>
+        </div>
+        <a class="card-footer text-white clearfix small z-1" routerLink="/completecourse">
+          <span class="float-left">View Details</span>
+          <span class="float-right">
+            <i class="fa fa-angle-right"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+    <div *ngIf="isadmin" class="col-xl-4 col-sm-6 mb-3">
+      <div class="card dashboard text-white bg-warning o-hidden h-100">
+        <div class="card-body">
+          <div class="card-body-icon">
+            <i class="fa fa-fw fa-star"></i>
+          </div>
+            <div class="mr-5"><h5>{{ allCourse.length }}  Course</h5></div>
+        </div>
+        <a class="card-footer text-white clearfix small z-1" routerLink="/course">
+          <span class="float-left">View Details</span>
+          <span class="float-right">
+            <i class="fa fa-angle-right"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+    <div class="col-xl-4 col-sm-6 mb-3">
+      <div class="card dashboard text-white bg-success o-hidden h-100">
+        <div class="card-body">
+          <div class="card-body-icon">
+            <i class="fa fa-fw fa-calendar-check-o"></i>
+          </div>
+          <div class="mr-5"><h5>10 New Courses!</h5></div>
+        </div>
+        <a class="card-footer text-white clearfix small z-1" href="bookings.html">
+          <span class="float-left">View Details</span>
+          <span class="float-right">
+            <i class="fa fa-angle-right"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+    </div>
+    <!-- /cards -->
+    
+    <div class="row">
+      <div class="col-sm-6">
+          <div class="dashboard_annoucement_box">
+              <h3>New Courses</h3>
+              <span routerLink="/course">View All<i class="icon-left"></i></span>
+              <div class="dashboard_course">
+              <ul>
+                <li *ngFor="let course of allCourse">
+                <div class="col-md-12" [routerLink]="['/course', course.coursecode]">
+                    <div class="row">
+                      <div class="col-md-5">
+                        <img src="./assets/uploads/{{course.coursepicture}}" width="100%" alt="{{course.coursename}}">
+                      </div>
+                      <div class="col-md-7">
+                        <h4>{{course.coursename}}</h4>
+                        <ul class="course_list">
+                          <li><strong>Duration</strong> {{course.courseduration}}</li>
+                          <li><strong>Category</strong> {{course.coursecategory}}</li>
+                          <li><strong>Price</strong> {{course.courseprice | currency:'INR'}}</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      <div class="col-sm-6">
+        <div class="dashboard_annoucement_box">
+            <h3>Annoucements</h3>
+            <div class="dashboard_annoucement">
+              <ul>
+                <li *ngFor="let item of allannoucement">
+                  <span>{{ item.date | date: 'medium' }}</span>
+                  <figure><img src="./assets/img/admin.png" width="100%" alt="Invesmate"></figure>
+                  <h4>{{ item.title }}</h4>
+                  <p>{{ item.description }}</p>
+                </li>
+              </ul>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.container-fluid-->
+    </div>
+<!-- /.container-wrapper-->
