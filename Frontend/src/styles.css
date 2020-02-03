@@ -1,0 +1,186 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+/* BASIC */
+
+
+.certificate{
+  /*background: url(./assets/img/certificate.jpg);
+  background-repeat: no-repeat;
+  width: 1123px;
+  height: 794px;
+  padding-top: 358px;*/
+  margin-top: -56px;
+  text-align: -webkit-center;
+  position: relative;
+  width: 774px;
+}
+
+.name{
+  position: absolute;
+  font-size: 50px;
+  color: #4690b0;
+  top: 247px;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.course{
+  position: absolute;
+  font-size: 50px;
+  color: #4690b0;
+  top: 317px;
+  left: 18%;
+  transform: translate(-12%);
+ }
+.date{
+  /* margin-top: -20px; */
+  font-size: medium;
+  margin-left: 34px;
+  position: absolute;
+  /* font-size: 70px; */
+  /* color: #4690b0; */
+  top: 384px;
+  left: 50%;
+  transform: translate(-50%);
+  font-weight: 600;
+ }
+video {
+  position: sticky;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 1;
+}
+.activemenu a{
+  background: #6abfc6;
+}
+
+.activemenu a:hover{
+  background: #51a92f;
+}
+
+.dashboard_annoucement_box{
+  margin-bottom: 15px;
+  background-color: white;
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  height: 350px;
+}
+
+.dashboard_annoucement_box > h3{
+  padding: 9px 19px 4px;
+  font-size: 21px;
+  font-size: 1.3125rem;
+}
+
+.dashboard_annoucement_box > span{
+  float: right;
+  margin-top: -35px;
+  margin-right: 20px;
+  cursor: pointer;
+  color: #6abfc6;
+  font-weight: bold;
+}
+
+.dashboard_annoucement_box > span:hover{
+  color: #51a92f;
+}
+
+.dashboard_annoucement{
+  width: 100%;
+  height: 300px;
+  overflow-y: auto;
+}
+
+.dashboard_annoucement > ul > li figure{
+  margin: 0px;
+}
+
+.dashboard_annoucement > ul > li figure img {
+  width: 70px;
+  height: 70px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+  overflow: hidden;
+  position: absolute;
+  left: 10px;
+  top: 5px;
+}
+
+.dashboard_annoucement > ul p{
+  margin-bottom: 15px;
+}
+
+.dashboard_annoucement > ul h4{
+  font-size: 20px;
+}
+
+.dashboard_annoucement > ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.dashboard_annoucement > ul > li{
+  position: relative;
+  padding: 10px 20px 5px 92px;
+  border-top: 1px solid #ededed;
+}
+
+@media (max-width: 767px) {
+  .dashboard_annoucement > ul > li {
+    /* For less than 767px */
+    padding-left: 30px;
+  }
+}
+.dashboard_annoucement > ul > li:hover {
+  background-color: #f8f9fa;
+}
+
+.dashboard_annoucement > ul span {
+  float: right;
+  font-style: italic;
+  color: #adb5bd;
+}
+@media (max-width: 767px) {
+  .dashboard_annoucement > ul span {
+    /* For less than 767px */
+    float: right;
+    display: inline-block;
+  }
+}
+
+
+.dashboard_course > ul > li{
+  position: relative;
+  padding: 10px 20px 5px 20px;
+  border-top: 1px solid #ededed;
+}
+
+.dashboard_course img{
+  margin: 5px 0px 10px -15px;
+}
+
+.dashboard_course ul.course_list li strong {
+  width: 75px;
+  display: inline-block;
+}
+
+.dashboard_course ul.course_list {
+  list-style: none;
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+
+.dashboard_course > ul > li:hover {
+  background-color: #f8f9fa;
+}
+
+.dashboard_course > ul h4{
+  font-size: 20px;
+}
